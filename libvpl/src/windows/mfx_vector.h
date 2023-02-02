@@ -80,7 +80,7 @@ public:
             return;
         }
         if (where.mIndex > mNrecords) {
-            throw MFXVectorRangeError();
+            //throw MFXVectorRangeError();
         }
 
         T *newRecords = new T[mNrecords + elementsToInsert]();
@@ -122,7 +122,7 @@ public:
     }
     void erase(iterator at) {
         if (at.mIndex >= mNrecords) {
-            throw MFXVectorRangeError();
+            //throw MFXVectorRangeError();
         }
         mNrecords--;
         mfxU32 i = at.mIndex;

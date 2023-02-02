@@ -32,6 +32,11 @@
     #endif
 #endif
 
+#if !(__cpp_exceptions + 0)
+# define try if (true)
+# define catch(...)  if (false)
+#endif
+
 class DispatcherLogVPL {
 public:
     DispatcherLogVPL();
