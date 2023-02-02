@@ -185,13 +185,17 @@ if(INSTALL_DEV)
   if(CMAKE_DL_LIBS)
     set(DL_LIBS "-l${CMAKE_DL_LIBS}")
   endif()
-  if(MINGW)
+  if(WIN32) # mingw and clang-cl
     # being conservative by restricting to MinGW, these are probably ok for
     # WIN32 in general
-    set(MINGW_LIBS "-lole32 -lgdi32 -luuid")
+    set(MINGW_LIBS "-ladvapi32 -lole32 -lgdi32 -luuid")
   endif()
   if(NOT MSVC)
-    set(CXX_LIB "-lstdc++")
+    if(USE_LIBCXX)
+      set(CXX_LIB "-lc++")
+    else()
+      set(CXX_LIB "-lstdc++")
+    endif()
   endif()
   set(VPL_PKGCONFIG_DEPENDENT_LIBS
       "${DL_LIBS} ${CMAKE_THREAD_LIBS_INIT} ${MINGW_LIBS} ${CXX_LIB}")
