@@ -141,7 +141,9 @@ install(
 
 include(cmake/PackageTarget.cmake)
 set(CMAKE_INSTALL_SYSTEM_RUNTIME_COMPONENT runtime)
-include(InstallRequiredSystemLibraries)
+if(NOT CMAKE_CROSSCOMPILING)
+  include(InstallRequiredSystemLibraries)
+endif()
 
 message(
   STATUS "---------------- Configuration summary ------------------------------"
