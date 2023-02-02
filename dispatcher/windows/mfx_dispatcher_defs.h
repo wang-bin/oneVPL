@@ -35,3 +35,8 @@ typedef void(MFX_CDECL *mfxFunctionPointer)(void);
 // With DriverStore loading put at 1st place, dispatcher loads real lib before it finds tracer dll.
 // This workaround explicitly checks tracer presence in Dispatch reg key and loads tracer dll before the search for lib in all other places.
 #define MFX_TRACER_WA_FOR_DS 1
+
+#if !(__cpp_exceptions + 0)
+# define try if (true)
+# define catch(...)  if (false)
+#endif

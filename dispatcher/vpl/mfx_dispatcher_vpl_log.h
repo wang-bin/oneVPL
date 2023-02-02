@@ -10,9 +10,9 @@
 /* oneVPL Dispatcher Debug Log
  * The debug output of the dispatcher is controlled with the ONEVPL_DISPATCHER_LOG environment variable.
  * To enable log output, set the ONEVPL_DISPATCHER_LOG environment variable value equals to "ON".
- * 
+ *
  * By default, oneVPL dispatcher prints all log messages to the console.
- * To redirect log output to the desired file, set the ONEVPL_DISPATCHER_LOG_FILE environmental 
+ * To redirect log output to the desired file, set the ONEVPL_DISPATCHER_LOG_FILE environmental
  *   variable with the file name of the log file.
  */
 
@@ -30,6 +30,11 @@
     #else
         #define __FUNC_NAME__ __PRETTY_FUNCTION__
     #endif
+#endif
+
+#if !(__cpp_exceptions + 0)
+# define try if (true)
+# define catch(...)  if (false)
 #endif
 
 class DispatcherLogVPL {

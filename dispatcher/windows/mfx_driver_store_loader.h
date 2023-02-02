@@ -12,7 +12,7 @@
 #include <cfgmgr32.h>
 
 // support building in MinGW environments with older versions of cfgmgr32
-#ifdef __MINGW32__
+#ifdef _WIN32
     #if !defined(CM_GETIDLIST_FILTER_PRESENT)
         #define CM_GETIDLIST_FILTER_PRESENT 0x00000100
     #endif
