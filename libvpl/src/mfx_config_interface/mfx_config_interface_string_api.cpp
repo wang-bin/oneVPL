@@ -14,6 +14,11 @@
 #include <vector>
 #include "vpl/mfxcommon.h"
 
+#if !(__cpp_exceptions + 0)
+# define try if (true)
+# define catch(...)  if (false)
+#endif
+
 namespace MFX_CONFIG_INTERFACE {
 
 static const char ebPrefix[] = "mfxExt";

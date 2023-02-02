@@ -18,6 +18,11 @@
 
 #include "vpl/mfxvideo.h"
 
+#if !(__cpp_exceptions + 0)
+# define try if (true)
+# define catch(...)  if (false)
+#endif
+
 enum eMFXHWType {
     MFX_HW_UNKNOWN = 0,
     MFX_HW_SNB     = 0x300000,
